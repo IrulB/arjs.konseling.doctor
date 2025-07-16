@@ -2,37 +2,40 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <title>AR Doctor – GPS Location</title>
+  <title>AR Doctor – Image Tracking</title>
 
-  <!-- A-Frame + AR.js GPS -->
+  <!-- A-Frame + AR.js NFT -->
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 
-  <style>
-    body { margin: 0; overflow: hidden; }
-  </style>
+  <style>body{margin:0;overflow:hidden}</style>
 </head>
 
 <body>
   <a-scene
     vr-mode-ui="enabled: false"
     embedded
-    arjs="sourceType: webcam; debugUIEnabled: false;
-          trackingMethod: best;
-          gpsMinDistance: 5;
-          gpsMaxDistance: 150;">
+    arjs="sourceType: webcam; debugUIEnabled: true">
 
-    <!-- 1) Objek 3D di lokasi tertentu -->
-    <!-- ↓↓↓ GANTI LAT & LON sesuai tempat Anda / tempat tes ↓↓↓ -->
-    <a-entity
-      obj-model="obj: assets/models/Doctor_01.obj; mtl: assets/models/Doctor_01.mtl"
-      gps-entity-place="latitude: -6.200000; longitude: 106.816666"
-      scale="5 5 5"
-      position="0 0 0">
-    </a-entity>
+    <!-- Image-Tracking marker -->
+    <a-nft
+      type="nft"
+      url="nft/pendidikan-pattern"
+      smooth="true"
+      smoothCount="5"
+      smoothTolerance="0.01">
+      
+      <!-- Model 3D -->
+      <a-entity
+        obj-model="obj: assets/models/Doctor_01.obj; mtl: assets/models/Doctor_01.mtl"
+        scale="0.05 0.05 0.05"
+        position="0 0 0"
+        rotation="0 180 0">
+      </a-entity>
+    </a-nft>
 
-    <!-- 2) Kamera GPS -->
-    <a-camera gps-camera rotation-reader></a-camera>
+    <!-- Kamera otomatis -->
+    <a-camera static-camera></a-camera>
   </a-scene>
 </body>
 </html>

@@ -30,14 +30,21 @@
       <!-- Model 3D -->
       <a-entity
         obj-model="obj: assets/models/Doctor_01.obj; mtl: assets/models/Doctor_01.mtl"
-        scale="0.005 0.005 0.005"
-        position="0 0.15 0"
-        rotation="0 180 0"
+        scale="0.01 0.01 0.01" <!-- Ubah nilai scale ini sesuai ukuran model Anda -->
+        position="0 0.2 0" <!-- Posisi model -->
+        rotation="0 180 0" <!-- Rotasi model -->
       ></a-entity>
     </a-marker>
 
     <!-- Kamera AR -->
-    <a-entity camera></a-entity>
+    <a-entity camera>
+      <a-animation
+        property="position"
+        dur="5000"
+        to="0 0.5 1"
+        repeat="indefinite"
+      ></a-animation>
+    </a-entity>
   </a-scene>
 </body>
 </html>
